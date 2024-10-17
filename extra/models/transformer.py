@@ -21,7 +21,7 @@ class TransformerBlock:
     self.ln1 = (Tensor.ones(embed_dim), Tensor.zeros(embed_dim))
     self.ln2 = (Tensor.ones(embed_dim), Tensor.zeros(embed_dim))
 
-  def attn(self, x):
+  def attn(self, x:Tensor):
     # x: (bs, time, embed_dim) -> (bs, time, embed_dim)
     query, key, value = [x.linear(*y).reshape(shape=(x.shape[0], -1, self.num_heads, self.head_size)).transpose(1,2) for y in [self.query, self.key, self.value]]
     attention = Tensor.scaled_dot_product_attention(query, key, value).transpose(1,2)

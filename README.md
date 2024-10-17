@@ -1,3 +1,5 @@
+fork of tinygrad, for learning purposes, checking how to do stuff and taking inspiration
+
 <div align="center">
 
 <picture>
